@@ -29,15 +29,15 @@ export default function Navbar(props) {
 </>
   );
 }
-
+ 
 Navbar.propTypes={
     title:PropTypes.string.isRequired,
     homeText:PropTypes.string.isRequired,
     aboutText:PropTypes.string.isRequired
 }
 
-Navbar.defaultProps={
-    title:"This is the default text",
-    aboutText:"This is default home text",
-    homeText:"This is default home text"
-}
+// Navbar.defaultProps={
+//     title:"This is the default text",
+//     aboutText:"This is default home text",
+//     homeText:"This is default home text"
+// }
