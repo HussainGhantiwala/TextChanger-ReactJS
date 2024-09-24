@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
-
 export default function TextForm(props) {
   const[text,setText]=useState('')
 
@@ -13,6 +12,26 @@ export default function TextForm(props) {
   const handleOnChange=(event)=>{
     setText(event.target.value)
     // console.log("You typed?")
+  }
+  const clearText=()=>{
+    let newText=''
+    setText(newText)
+  }
+  const speech=()=>{ 
+    let msg=new SpeechSynthesisUtterance()
+    msg.text=text;
+    window.speechSynthesis.speak(msg);
+  }
+
+  const reverse=()=>{
+    let newText=text.split('').reverse('').join('')
+    setText(newText)
+  }
+  const backToNormal=()=>{
+    let splitText=text.split('');
+    let reverseText=splitText.reverse('');
+    let joinText=reverseText.join('');
+    setText(joinText);
   }
   const lowerCase=()=>{
     let newText=text.toLowerCase();
@@ -27,8 +46,12 @@ export default function TextForm(props) {
       <div className="mb-3">
         <textarea className="form-control" id="myBox" value={text} rows="8" onChange={handleOnChange}></textarea>
       </div>
-      <button className="btn btn-primary ms2 my-2" onClick={upperCase}>Convert to UpperCase</button> {/**mx and my are bootstrap properties, mx gives Margin at x axis and my gives marin at y axis */}
-      <button className="btn btn-primary" onClick={lowerCase}>Convert LowerCase</button>
+      <button className="btn btn-primary my-2" onClick={upperCase}>Convert to UpperCase</button> {/**mx and my are bootstrap properties, mx gives Margin at x axis and my gives marin at y axis */}
+      <button className="btn btn-primary ms-2" onClick={lowerCase}>Convert LowerCase</button>
+      <button className="btn btn-primary ms-2" onClick={clearText}>Clear text</button>
+      <button className="btn btn-primary ms-2" onClick={speech}>Sound On</button>
+      <button className="btn btn-primary ms-2" onClick={reverse}>Reverse The Text</button>
+      <button className="btn btn-primary ms-2" onClick={backToNormal}>Back to normal</button>
     </div>
     <div className="container my-3">
       <h2>Your text summary</h2>
