@@ -1,32 +1,29 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
-
-
-
 export default function AboutTwo(props) {
-    const [myStyle, setMyStyle]=useState({
-        color:'black',
-        backgroundColor:'white'
+    const [myStyle, setMyStyle] = useState({
+        color: 'black',
+        backgroundColor: 'white'
     })
-    const [btnText, setBtnText]=useState('Enable Dark Mode')
-    const toggleColor=()=>{
-        if (myStyle.color==='black') {
+    const [btnText, setBtnText] = useState('Enable Dark Mode')
+    const toggleColor = () => {
+        if (myStyle.color === 'black') {
             setMyStyle({
-                color:'white',
-                backgroundColor:'black',
+                color: 'white',
+                backgroundColor: 'black',
                 border: '1px solid white'
             })
-            setBtnText('Enable  Light Mode')
-        }else{
+            setBtnText('Disable Dark Mode')
+        } else {
             setMyStyle({
-                color:'black',
-                backgroundColor:'white'
+                color: 'black',
+                backgroundColor: 'white'
             })
             setBtnText('Enable Dark Mode')
         }
     }
     return (
-        <div className='container'style={myStyle}>
+        <div className='container' style={myStyle}>
             <h1 className='my-2'>{props.title}</h1>
             <div className="accordion" id="accordionExample">
                 <div className="accordion-item">
@@ -67,9 +64,13 @@ export default function AboutTwo(props) {
                 </div>
             </div>
             <div className='my-2'>
-                <button type="button" className="btn btn-primary" onClick={toggleColor}>{btnText}</button>
-
+            <div className="form-check form-switch">
+                <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onChange={toggleColor} />
+                <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{btnText}</label>
             </div>
+            </div>
+            
+           
         </div>
     )
 }
