@@ -145,5 +145,7 @@ export default function TextForm(props) {
   );
 }
 TextForm.propTypes = {
-  heading: PropTypes.string
+  heading: PropTypes.string,
+  mode:PropTypes.string,
+  showAlert:PropTypes.func
 }

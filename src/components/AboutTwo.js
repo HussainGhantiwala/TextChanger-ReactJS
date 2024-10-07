@@ -1,38 +1,41 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
+
+
+
 export default function AboutTwo(props) {
-    const [myStyle, setMyStyle] = useState({
-        color: 'black',
-        backgroundColor: 'white'
+    const [myStyle, setMyStyle]=useState({
+        color:'black',
+        backgroundColor:'white'
     })
-    const [btnText, setBtnText] = useState('Enable Dark Mode')
-    const toggleColor = () => {
-        if (myStyle.color === 'black') {
+    const [btnText, setBtnText]=useState('Enable Dark Mode')
+    const toggleColor=()=>{
+        if (myStyle.color==='black') {
             setMyStyle({
-                color: 'white',
-                backgroundColor: 'black',
+                color:'white',
+                backgroundColor:'black',
                 border: '1px solid white'
             })
-            setBtnText('Disable Dark Mode')
-        } else {
+            setBtnText('Enable  Light Mode')
+        }else{
             setMyStyle({
-                color: 'black',
-                backgroundColor: 'white'
+                color:'black',
+                backgroundColor:'white'
             })
             setBtnText('Enable Dark Mode')
         }
     }
     return (
-        <div className='container' style={myStyle}>
+        <div className='container'style={{color:props.mode==='dark'?'white':'black'}}>
             <h1 className='my-2'>{props.title}</h1>
-            <div className="accordion" id="accordionExample">
-                <div className="accordion-item">
+            <div className="accordion" id="accordionExample" style={{backgroundColor: props.mode === 'dark' ? '#1E1E1E' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                <div className="accordion-item"style={{backgroundColor: props.mode === 'dark' ? '#1E1E1E' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                     <h2 className="accordion-header">
                         <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style={myStyle}>
                             Accordion Item #1
                         </button>
                     </h2>
-                    <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample" style={{backgroundColor: props.mode === 'dark' ? '#1E1E1E' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                         <div className="accordion-body" style={myStyle}>
                             <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classNamees that we use to style each element. These classNamees control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                         </div>
@@ -64,13 +67,9 @@ export default function AboutTwo(props) {
                 </div>
             </div>
             <div className='my-2'>
-            <div className="form-check form-switch">
-                <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onChange={toggleColor} />
-                <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{btnText}</label>
+                <button type="button" className="btn btn-primary" onClick={toggleColor}>{btnText}</button>
+
             </div>
-            </div>
-            
-           
         </div>
     )
 }
