@@ -1,17 +1,14 @@
 
 import './App.css';
 import React, { useState } from 'react';
-
-// import AboutTwo from './components/AboutTwo';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 import AboutTwo from './components/AboutTwo';
-// import TextForm from './components/TextForm';
+import Home from './components/home';
 import {
   BrowserRouter as Router, Route,Routes
-} from "react-router-dom";
-import Home from './components/home';
+} from "react-router-dom";    //downloading react route-:  npm install react-router-dom
 
 
 function App() {
