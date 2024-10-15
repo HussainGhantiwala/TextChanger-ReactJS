@@ -1,41 +1,27 @@
 import PropTypes from 'prop-types'
-import { useState } from 'react'
 
 
 
 export default function AboutTwo(props) {
-    const [myStyle, setMyStyle]=useState({
-        color:'black',
-        backgroundColor:'white'
-    })
-    const [btnText, setBtnText]=useState('Enable Dark Mode')
-    const toggleColor=()=>{
-        if (myStyle.color==='black') {
-            setMyStyle({
-                color:'white',
-                backgroundColor:'black',
-                border: '1px solid white'
-            })
-            setBtnText('Enable  Light Mode')
-        }else{
-            setMyStyle({
-                color:'black',
-                backgroundColor:'white'
-            })
-            setBtnText('Enable Dark Mode')
-        }
+    // const [myStyle, setMyStyle]=useState({
+    //     color:'black',
+    //     backgroundColor:'white'
+    // })
+    let myStyle={
+        color:props.mode==='dark'?'white':'black',
+        backgroundColor:props.mode==='dark'?'black':'white'
     }
     return (
-        <div className='container'style={{color:props.mode==='dark'?'white':'black'}}>
+        <div className='contain er'style={myStyle}>
             <h1 className='my-2'>{props.title}</h1>
-            <div className="accordion" id="accordionExample" style={{backgroundColor: props.mode === 'dark' ? '#1E1E1E' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                <div className="accordion-item"style={{backgroundColor: props.mode === 'dark' ? '#1E1E1E' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+            <div className="accordion" id="accordionExample">
+                <div className="accordion-item">
                     <h2 className="accordion-header">
                         <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style={myStyle}>
                             Accordion Item #1
                         </button>
                     </h2>
-                    <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample" style={{backgroundColor: props.mode === 'dark' ? '#1E1E1E' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                    <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                         <div className="accordion-body" style={myStyle}>
                             <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classNamees that we use to style each element. These classNamees control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                         </div>
@@ -48,7 +34,7 @@ export default function AboutTwo(props) {
                         </button>
                     </h2>
                     <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div className="accordion-body">
+                        <div className="accordion-body" style={myStyle}>
                             <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classNamees that we use to style each element. These classNamees control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                         </div>
                     </div>
@@ -66,10 +52,7 @@ export default function AboutTwo(props) {
                     </div>
                 </div>
             </div>
-            <div className='my-2'>
-                <button type="button" className="btn btn-primary" onClick={toggleColor}>{btnText}</button>
 
-            </div>
         </div>
     )
 }

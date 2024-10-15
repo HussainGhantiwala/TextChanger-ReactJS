@@ -121,24 +121,24 @@ export default function TextForm(props) {
         <div className="mb-3">
           <textarea className="form-control" id="myBox" value={text} rows="8" onChange={handleOnChange} style={{ backgroundColor: props.mode === 'dark' ? '#1E1E1E' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }} ></textarea>
         </div>
-        <button className="btn btn-primary my-2 my-2" onClick={upperCase}>Convert to UpperCase</button> {/**mx and my are bootstrap properties, mx gives Margin at x axis and my gives marin at y axis */}
-        <button className="btn btn-primary ms-2 my-2" onClick={lowerCase}>Convert LowerCase</button>
-        <button className="btn btn-primary ms-2 my-2" onClick={clearText}>Clear text</button>
-        <button className="btn btn-primary ms-2 my-2" onClick={speech}>Sound On</button>
-        <button className="btn btn-primary ms-2 my-2" onClick={reverse}>Reverse The Text</button>
-        <button className="btn btn-primary ms-2 my-2" onClick={backToNormal}>Back to normal</button>
-        <button className="btn btn-primary ms-2 my-2" onClick={copyText}>Copy text</button>
-        <button className="btn btn-primary ms-2 my-2" onClick={handleExtraSpace}>Handle Extra Spaces</button>
-        <button className="btn btn-primary ms-2 my-2" onClick={capitalizeLetter}>Capital Letters</button>
-        <button className="btn btn-primary ms-1 my-2" onClick={onAlternatingCase}>Alternate Casing</button>
+        <button disabled={text.length===0} className="btn btn-primary my-2 my-2" onClick={upperCase}>Convert to UpperCase</button> {/**mx and my are bootstrap properties, mx gives Margin at x axis and my gives marin at y axis */}
+        <button disabled={text.length===0} className="btn btn-primary ms-2 my-2" onClick={lowerCase}>Convert LowerCase</button>
+        <button disabled={text.length===0} className="btn btn-primary ms-2 my-2" onClick={clearText}>Clear text</button>
+        <button disabled={text.length===0} className="btn btn-primary ms-2 my-2" onClick={speech}>Sound On</button>
+        <button disabled={text.length===0} className="btn btn-primary ms-2 my-2" onClick={reverse}>Reverse The Text</button>
+        <button disabled={text.length===0} className="btn btn-primary ms-2 my-2" onClick={backToNormal}>Back to normal</button>
+        <button disabled={text.length===0} className="btn btn-primary ms-2 my-2" onClick={copyText}>Copy text</button>
+        <button disabled={text.length===0} className="btn btn-primary ms-2 my-2" onClick={handleExtraSpace}>Handle Extra Spaces</button>
+        <button disabled={text.length===0} className="btn btn-primary ms-2 my-2" onClick={capitalizeLetter}>Capital Letters</button>
+        <button disabled={text.length===0} className="btn btn-primary ms-1 my-2" onClick={onAlternatingCase}>Alternate Casing</button>
 
       </div>
       <div className="container my-3" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
         <h2>Your text summary</h2>
         <p>{text.trim().split(/\s+/).filter(word => word !== '').length} words and {text.trim().length}{/**This text.split('').length will split the word and the space (hence the empty string) and print number words in the sentence*/} Words and {text.length} characters found</p> {/*This {text.length} is used to count the characters in the text that the user write on the text field*/}
-        <p>{0.008 * text.split(' ').length}{/**This helps user know how long will it take to read a sentence from the tect field */} Minutes read</p>
+        <p>{0.008 * text.split(' ').filter((element)=>{return element.length!==0}).length}{/**This helps user know how long will it take to read a sentence from the tect field */} Minutes read</p>
         <h3>Preview</h3>
-        <p>{text.length > 0 ? text : 'Write something in the text-form to Preview here'}</p>
+        <p>{text.length > 0 ? text : 'Write something in the Text Field to Preview here'}</p>
       </div>
     </>
 
