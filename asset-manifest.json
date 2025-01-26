@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/TextChanger-ReactJS/static/css/main.2890232c.css",
+    "main.js": "/TextChanger-ReactJS/static/js/main.b59955b6.js",
+    "static/js/453.cbdb5803.chunk.js": "/TextChanger-ReactJS/static/js/453.cbdb5803.chunk.js",
+    "index.html": "/TextChanger-ReactJS/index.html",
+    "main.2890232c.css.map": "/TextChanger-ReactJS/static/css/main.2890232c.css.map",
+    "main.b59955b6.js.map": "/TextChanger-ReactJS/static/js/main.b59955b6.js.map",
+    "453.cbdb5803.chunk.js.map": "/TextChanger-ReactJS/static/js/453.cbdb5803.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2890232c.css",
+    "static/js/main.b59955b6.js"
+  ]
+}
